@@ -88,7 +88,7 @@
      gameOver.visible=false;
      restart.visible=false;
      play.visible=true;
-     ground.velocityX = -5;
+     ground.velocityX = -3;
      if (ground.x < 0){
        ground.x = ground.width/2;
      }
