@@ -85,7 +85,6 @@
    background("black");
  
    if (gameState===START) {
-     player.x=600;
      gameOver.visible=false;
      restart.visible=false;
      play.visible=true;
@@ -100,40 +99,38 @@
        gameState=PLAY;
        point2.play();
        point2.loop = false;
+     } 
      }
-   }
  
-   if (gameState===PLAY){
+     if (gameState===PLAY){
  
-     player.x = 300;
+     //in playstate these arent required
+     gameOver.visible=false;
+     restart.visible=false;
+     play.visible=false;
  
-    //in playstate these arent required
-    gameOver.visible=false;
-    restart.visible=false;
-    play.visible=false;
+     //to increase speed with score
+      ground.velocityX = -(4 + score/50);
  
-    //to increase speed with score
-    ground.velocityX = -(4 + score/50);
- 
-    player.collide(invisible_ground);
+     player.collide(invisible_ground);
     zombie.collide(invisible_ground);
-    player.collide(edges);
+     player.collide(edges);
  
-    // infinite scrolling of ground
-    if (ground.x < 0){
+     // infinite scrolling of ground
+     if (ground.x < 0){
       ground.x = ground.width/2;
-    }
+     }
  
-    // gravity for player and movements
-    if(keyDown("space")&& player.y >= 220) {
+     // gravity for player and movements
+     if(keyDown("space")&& player.y >= 220) {
       player.velocityY = -10;  
      }  
-    if(keyDown("left")) {
+     if(keyDown("left")) {
       player.x-=2;
      }  
-    if(keyDown("right")) {
+     if(keyDown("right")) {
       player.x+=2;
-    }
+     }
     player.velocityY = player.velocityY + 0.8;
    
  
