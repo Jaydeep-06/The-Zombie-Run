@@ -1,3 +1,4 @@
+
  //Gamestates
  var PLAY = 2;
  var END = 1;
